@@ -1,152 +1,249 @@
-const phoneNumber = "91XXXXXXXXXX";
-
-const message = `Hey UMA ❤️
-
-Innaiku un birthday...
-
-Un smile paatha happiness varudhu 😊
-
-Un message paatha day complete aagudhu 💌
-
-Un presence paatha peace kidaikudhu 🌙
-
-Indha birthday la
-nee romba happy ah irukanum ✨
-
-Happy Birthday UMA 🎂
-
-- Krishna ❤️`;
-
-let i = 0;
-
-function typeWriter(){
-
-if(i < message.length){
-
-document.getElementById("typewriter").innerHTML +=
-message.charAt(i);
-
-i++;
-
-setTimeout(typeWriter,40);
-
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
 }
 
+body{
+background:linear-gradient(180deg,#050816,#111827);
+color:white;
+overflow-x:hidden;
 }
 
-typeWriter();
-
-const stars =
-document.getElementById("stars");
-
-for(let i=0;i<150;i++){
-
-let star =
-document.createElement("div");
-
-star.classList.add("star");
-
-star.style.left =
-Math.random()*100+"vw";
-
-star.style.top =
-Math.random()*100+"vh";
-
-stars.appendChild(star);
-
+.container{
+max-width:1000px;
+margin:auto;
+padding:20px;
+position:relative;
+z-index:2;
 }
 
-setInterval(()=>{
+.hero{
+text-align:center;
+padding:40px 0;
+}
 
-let heart =
-document.createElement("div");
+.title{
+font-size:3rem;
+color:#ff7eb3;
+animation:glow 2s infinite alternate;
+}
 
-heart.classList.add("heart");
+.subtitle{
+margin-top:10px;
+font-size:1.1rem;
+}
 
-heart.innerHTML="❤️";
+.cake{
+font-size:100px;
+margin-top:20px;
+animation:bounce 2s infinite;
+}
 
-heart.style.left =
-Math.random()*100+"vw";
+.letter-section,
+.surprise-section,
+.before-go,
+#proposalSection{
+margin-top:50px;
+}
 
-heart.style.fontSize =
-(20+Math.random()*20)+"px";
+.letter-box,
+.proposal-card,
+#finalMessage{
+background:rgba(255,255,255,0.08);
+padding:25px;
+border-radius:20px;
+backdrop-filter:blur(10px);
+}
 
-heart.style.animationDuration =
-(4+Math.random()*4)+"s";
+#typewriter{
+line-height:1.9;
+white-space:pre-line;
+}
 
-document
-.getElementById("hearts-container")
-.appendChild(heart);
+#surpriseBtn{
+padding:15px 30px;
+border:none;
+border-radius:30px;
+background:#ff4f81;
+color:white;
+font-size:18px;
+cursor:pointer;
+}
 
-setTimeout(()=>{
-heart.remove();
-},8000);
+#surpriseMessage{
+display:none;
+margin-top:30px;
+}
 
-},300);
+.reason-card{
+display:none;
+background:rgba(255,255,255,0.08);
+padding:18px;
+margin:15px 0;
+border-radius:15px;
+animation:fadeUp .8s ease;
+}
 
-document
-.getElementById("surpriseBtn")
-.addEventListener("click",()=>{
+.buttons{
+margin-top:20px;
+}
 
-document
-.getElementById("surpriseMessage")
-.style.display="block";
+#yesBtn,#noBtn{
+padding:14px 25px;
+border:none;
+border-radius:30px;
+font-size:18px;
+cursor:pointer;
+margin:10px;
+}
 
-const cards =
-document.querySelectorAll(".reason-card");
+#yesBtn{
+background:#00c853;
+color:white;
+}
 
-cards.forEach((card,index)=>{
+#noBtn{
+background:#ff1744;
+color:white;
+position:relative;
+}
 
-setTimeout(()=>{
+#finalMessage{
+display:none;
+margin-top:30px;
+text-align:center;
+}
 
-card.style.display="block";
+.whatsapp-box{
+text-align:center;
+margin-top:30px;
+}
 
-},index*700);
+.whatsapp-box img{
+transition:.3s;
+}
 
-});
+.whatsapp-box img:hover{
+transform:scale(1.1);
+}
 
-});
+#stars{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:0;
+}
 
-document
-.getElementById("yesBtn")
-.addEventListener("click",()=>{
+.star{
+position:absolute;
+width:3px;
+height:3px;
+background:white;
+border-radius:50%;
+animation:twinkle 2s infinite;
+}
 
-document
-.getElementById("finalMessage")
-.style.display="block";
+#hearts-container{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+z-index:1;
+}
 
-document
-.getElementById("finalMessage")
-.scrollIntoView({
-behavior:"smooth"
-});
+.heart{
+position:absolute;
+color:#ff4f81;
+animation:fall linear forwards;
+}
 
-});
+@keyframes glow{
+from{
+text-shadow:0 0 10px white;
+}
+to{
+text-shadow:0 0 30px #ff4f81;
+}
+}
 
-const noBtn =
-document.getElementById("noBtn");
+@keyframes bounce{
+50%{
+transform:translateY(-15px);
+}
+}
 
-noBtn.addEventListener("mouseover",()=>{
+@keyframes twinkle{
+50%{
+opacity:.3;
+}
+}
 
-noBtn.style.position="absolute";
+@keyframes fall{
+to{
+transform:translateY(110vh);
+}
+}
 
-noBtn.style.left =
-Math.random()*70+"vw";
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+.song-section{
+text-align:center;
+margin-top:60px;
+padding:25px;
+background:rgba(255,255,255,0.08);
+border-radius:20px;
+}
 
-noBtn.style.top =
-Math.random()*70+"vh";
+#playSongBtn{
+padding:15px 30px;
+border:none;
+border-radius:30px;
+background:#ff4f81;
+color:white;
+font-size:18px;
+cursor:pointer;
+margin-top:15px;
+}
 
-});
+.gallery{
+max-width:350px;
+margin:auto;
+position:relative;
+}
 
-document
-.getElementById("whatsappLink")
-.addEventListener("click",(e)=>{
+.slide{
+display:none;
+width:100%;
+height:450px;
+object-fit:cover;
+border-radius:25px;
+box-shadow:0 0 25px rgba(255,255,255,.2);
+}
 
-e.preventDefault();
+.slide.active{
+display:block;
+animation:fadePhoto 1s;
+}
 
-window.open(
-"https://wa.me/" + phoneNumber,
-"_blank"
-);
-
-});
+@keyframes fadePhoto{
+from{
+opacity:0;
+}
+to{
+opacity:1;
+}
+}
