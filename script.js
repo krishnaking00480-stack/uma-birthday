@@ -1,40 +1,228 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+const phoneNumber = "91XXXXXXXXXX";
+
+const message = `Hey UMA ❤️
+
+Innaiku un birthday...
+
+Un smile paatha happiness varudhu 😊
+
+Un message paatha day complete aagudhu 💌
+
+Un presence paatha peace kidaikudhu 🌙
+
+Indha birthday la
+nee romba happy ah irukanum ✨
+
+Happy Birthday UMA 🎂
+
+- Krishna ❤️`;
+
+let i = 0;
+
+function typeWriter(){
+
+if(i < message.length){
+
+document.getElementById("typewriter").innerHTML +=
+message.charAt(i);
+
+i++;
+
+setTimeout(typeWriter,40);
+
 }
 
-body{
-background:linear-gradient(180deg,#050816,#111827);
-color:white;
-overflow-x:hidden;
 }
 
-.container{
-max-width:1000px;
-margin:auto;
-padding:20px;
-position:relative;
-z-index:2;
+typeWriter();
+
+const stars =
+document.getElementById("stars");
+
+for(let i=0;i<150;i++){
+
+let star =
+document.createElement("div");
+
+star.classList.add("star");
+
+star.style.left =
+Math.random()*100+"vw";
+
+star.style.top =
+Math.random()*100+"vh";
+
+stars.appendChild(star);
+
 }
 
-.hero{
-text-align:center;
-padding:40px 0;
+setInterval(()=>{
+
+let heart =
+document.createElement("div");
+
+heart.classList.add("heart");
+
+heart.innerHTML="❤️";
+
+heart.style.left =
+Math.random()*100+"vw";
+
+heart.style.fontSize =
+(20+Math.random()*20)+"px";
+
+heart.style.animationDuration =
+(4+Math.random()*4)+"s";
+
+document
+.getElementById("hearts-container")
+.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},8000);
+
+},300);
+
+document
+.getElementById("surpriseBtn")
+.addEventListener("click",()=>{
+
+document
+.getElementById("surpriseMessage")
+.style.display="block";
+
+const cards =
+document.querySelectorAll(".reason-card");
+
+cards.forEach((card,index)=>{
+
+setTimeout(()=>{
+
+card.style.display="block";
+
+},index*700);
+
+});
+
+});
+
+document
+.getElementById("yesBtn")
+.addEventListener("click",()=>{
+
+document
+.getElementById("finalMessage")
+.style.display="block";
+
+document
+.getElementById("finalMessage")
+.scrollIntoView({
+behavior:"smooth"
+});
+
+});
+
+const noBtn =
+document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover",()=>{
+
+noBtn.style.position="absolute";
+
+noBtn.style.left =
+Math.random()*70+"vw";
+
+noBtn.style.top =
+Math.random()*70+"vh";
+
+});
+
+document
+.getElementById("whatsappLink")
+.addEventListener("click",(e)=>{
+
+e.preventDefault();
+
+window.open(
+"https://wa.me/" + phoneNumber,
+"_blank"
+);
+
+});
+// SONG BUTTON
+
+
+
+const photos =
+document.querySelectorAll(".gallery img");
+
+photos.forEach(photo=>{
+
+photo.addEventListener("click",()=>{
+
+window.open(
+photo.src,
+"_blank"
+);
+
+});
+
+});
+const playSongBtn =
+document.getElementById("playSongBtn");
+
+const birthdaySong =
+document.getElementById("birthdaySong");
+
+if(playSongBtn && birthdaySong){
+
+playSongBtn.addEventListener("click",()=>{
+
+if(birthdaySong.paused){
+
+birthdaySong.play();
+
+playSongBtn.innerHTML =
+"⏸ Pause Song ❤️";
+
+}else{
+
+birthdaySong.pause();
+
+playSongBtn.innerHTML =
+"▶ Play Our Song ❤️";
+
 }
 
-.title{
-font-size:3rem;
-color:#ff7eb3;
-animation:glow 2s infinite alternate;
+});
+
+}
+const slides =
+document.querySelectorAll(".slide");
+
+let currentSlide = 0;
+
+function showSlide(){
+
+slides.forEach(slide=>{
+slide.classList.remove("active");
+});
+
+slides[currentSlide]
+.classList.add("active");
+
+currentSlide++;
+
+if(currentSlide >= slides.length){
+currentSlide = 0;
 }
 
-.subtitle{
-margin-top:10px;
-font-size:1.1rem;
 }
 
+showSlide();
+
+setInterval(showSlide,5000);
 .cake{
 font-size:100px;
 margin-top:20px;
