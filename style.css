@@ -200,3 +200,50 @@ opacity:1;
 transform:translateY(0);
 }
 }
+.song-section{
+text-align:center;
+margin-top:60px;
+padding:25px;
+background:rgba(255,255,255,0.08);
+border-radius:20px;
+}
+
+#playSongBtn{
+padding:15px 30px;
+border:none;
+border-radius:30px;
+background:#ff4f81;
+color:white;
+font-size:18px;
+cursor:pointer;
+margin-top:15px;
+}
+
+.gallery{
+max-width:350px;
+margin:auto;
+position:relative;
+}
+
+.slide{
+display:none;
+width:100%;
+height:450px;
+object-fit:cover;
+border-radius:25px;
+box-shadow:0 0 25px rgba(255,255,255,.2);
+}
+
+.slide.active{
+display:block;
+animation:fadePhoto 1s;
+}
+
+@keyframes fadePhoto{
+from{
+opacity:0;
+}
+to{
+opacity:1;
+}
+}
